@@ -412,7 +412,7 @@ windower.register_event('addon command', function(cmd, ...)
             skill_props:hide()
         end
     elseif cmd == 'save' then
-        local arg = ... and ...:lower() == 'all' and 'all'
+        local arg = ... and lower(...) == 'all' and 'all'
         config.save(settings, arg)
         windower.add_to_chat(207, string.format('%s: settings saved to %s character%s.', _addon.name, arg or 'current', arg and 's' or ''))
     elseif default.Show[cmd] then
