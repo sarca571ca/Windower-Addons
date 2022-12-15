@@ -207,11 +207,9 @@ function add_skills(t, abilities, active, resource, AM)
             local lv, prop, aeonic = check_props(active, aeonic_prop(skillchain, info.player))
             if prop then
                 prop = AM and aeonic or prop
-                local formAeonic = '%-16s → Lv.%d %s%-14s\\cr' -- moved to a variable to be cleaner
-                local formProp = '%-16s → Lv.%d %-14s' -- moved to a variable to be cleaner
                 tt[lv][#tt[lv]+1] = settings.color and
-                    formAeonic:format(res[resource][ability_id].name, lv, colors[prop], prop) or
-                    formProp:format(res[resource][ability_id].name, lv, prop)
+                    string.format('%-16s → Lv.%d %s%-14s\\cr', res[resource][ability_id].name, lv, colors[prop], prop) or
+                    string.format('%-16s → Lv.%d %-14s', res[resource][ability_id].name, lv, prop)
             end
         end
     end
@@ -243,7 +241,7 @@ function colorize(t)
     if settings.color then
         temp = {}
         for k=1,#t do
-            temp[k] = '%s%s\\cr':format(colors[t[k]], t[k])
+            temp[k] = string.format('%s%s\\cr', colors[t[k]], t[k])
         end
     end
     return _raw.table.concat(temp or t, ',')
@@ -275,24 +273,19 @@ windower.register_event('prerender', function()
         if not reson.closed then
             reson.disp_info = reson.disp_info or check_results(reson)
             local delay = reson.delay
-            local formTimer = '\\cs(0,255,0)Go!   %.1f\\cr' -- moved to a variable to be cleaner
-            local formWait = '\\cs(255,0,0)Wait  %.1f\\cr' -- moved to a variable to be cleaner
             reson.timer = now < delay and
-                formWait:format(delay - now) or
-                formTimer:format(timer)
+                string.format('\\cs(255,0,0)Wait  %.1f\\cr', delay - now) or
+                string.format('\\cs(0,255,0)Go!   %.1f\\cr', timer)
         elseif settings.Show.burst[info.job] then
             reson.disp_info = ''
-            local formBurst = 'Burst %d' -- moved to a variable to be cleaner
-            reson.timer = formBurst:format(timer)
+            reson.timer = string.format('Burst %d', timer)
         else
             resonating[targ_id] = nil
             return
         end
         reson.name = res[reson.res][reson.id].name
-        local formChainbound = 'Chainbound Lv.%d' -- moved to a variable to be cleaner
-        local formElement = '(%s)' -- moved to a variable to be cleaner
-        reson.props = reson.props or not reson.bound and colorize(reson.active) or formChainbound:format(reson.bound)
-        reson.elements = reson.elements or reson.step > 1 and settings.Show.burst[info.job] and formElement:format(colorize(sc_info[reson.active[1]])) or ''
+        reson.props = reson.props or not reson.bound and colorize(reson.active) or string.format('Chainbound Lv.%d', reson.bound)
+        reson.elements = reson.elements or reson.step > 1 and settings.Show.burst[info.job] and string.format('(%s)', colorize(sc_info[reson.active[1]])) or ''
         skill_props:update(reson)
         skill_props:show()
     elseif not visible then
@@ -421,10 +414,10 @@ windower.register_event('addon command', function(cmd, ...)
     elseif cmd == 'save' then
         local arg = ... and ...:lower() == 'all' and 'all'
         config.save(settings, arg)
-        windower.add_to_chat(207, '%s: settings saved to %s character%s.':format(_addon.name, arg or 'current', arg and 's' or ''))
+        windower.add_to_chat(207, string.format('%s: settings saved to %s character%s.', _addon.name, arg or 'current', arg and 's' or ''))
     elseif default.Show[cmd] then
         if not default.Show[cmd][info.job] then
-            return error('unable to set %s on %s.':format(cmd, info.job))
+            return error(format.strings('unable to set %s on %s.', cmd, info.job))
         end
         local key = settings.Show[cmd][info.job]
         if not key then
@@ -434,14 +427,14 @@ windower.register_event('addon command', function(cmd, ...)
         end
         config.save(settings)
         config.reload(settings)
-        windower.add_to_chat(207, '%s: %s info will no%s be displayed on %s.':format(_addon.name, cmd, key and ' longer' or 'w', info.job))--'t' or 'w'
+        windower.add_to_chat(207, strings.format('%s: %s info will no%s be displayed on %s.', _addon.name, cmd, key and ' longer' or 'w', info.job))--'t' or 'w'
     elseif type(default[cmd]) == 'boolean' then
         settings[cmd] = not settings[cmd]
-        windower.add_to_chat(207, '%s: %s %s':format(_addon.name, cmd, settings[cmd] and 'on' or 'off'))
+        windower.add_to_chat(207, string.format('%s: %s %s', _addon.name, cmd, settings[cmd] and 'on' or 'off'))
     elseif cmd == 'eval' then
         assert(loadstring(table.concat({...}, ' ')))()
     else
-        windower.add_to_chat(207, '%s: valid commands [save | move | burst | weapon | spell | pet | props | step | timer | color | aeonic]':format(_addon.name))
+        windower.add_to_chat(207, string.format('%s: valid commands [save | move | burst | weapon | spell | pet | props | step | timer | color | aeonic]', _addon.name))
     end
 end)
 
