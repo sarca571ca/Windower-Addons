@@ -1,0 +1,42 @@
+<?xml version="1.1" ?>
+<settings>
+    <global>
+        <hideKey>70</hideKey>
+        <macroBar>
+            <altKey>56</altKey>
+            <ctrlKey>29</ctrlKey>
+            <hide>
+                <enabled>true</enabled>
+            </hide>
+            <move>
+                <enabled>false</enabled>
+                <height>40</height>
+            </move>
+        </macroBar>
+        <pos>
+            <x>1550</x>
+            <y>1005</y>
+        </pos>
+        <subTargetBar>
+            <height>4</height>
+            <width>200</width>
+        </subTargetBar>
+        <targetBar>
+            <height>6</height>
+            <width>400</width>
+        </targetBar>
+        <text>
+            <bold>false</bold>
+            <font>Nexa Text-Trial Heavy Italic</font>
+            <fonts>
+                <1>DejaVu Sans Mono</1>
+                <2>Carlito</2>
+            </fonts>
+            <italic>false</italic>
+            <padding>28</padding>
+            <showPercentage>false</showPercentage>
+            <size>16</size>
+        </text>
+        <useRoundCap>false</useRoundCap>
+    </global>
+</settings>

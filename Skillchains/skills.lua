@@ -53,9 +53,9 @@ skills.weapon_skills = {
     [24] = {en='Shark Bite',skillchain={'Fragmentation'}},
     [25] = {en='Evisceration',skillchain={'Gravitation','Transfixion'}},
     [26] = {en='Mercy Stroke',skillchain={'Darkness','Gravitation'}},
-    [27] = {en='Mandalic Stab',skillchain={'Fusion','Compression'}},
+    [27] = {en='Mandalic Stab',skillchain={'Fusion','Scission'}}, -- Replaced Compression with Scission for HorizonXI
     [28] = {en='Mordant Rime',skillchain={'Fragmentation','Distortion'}},
-    [29] = {en='Pyrrhic Kleos',skillchain={'Distortion','Scission'}},
+    [29] = {en='Pyrrhic Kleos',skillchain={'Distortion','Compression'}}, -- Replaced Scission with Compression for HorizonXI
     [30] = {en='Aeolian Edge',skillchain={'Scission','Detonation','Impaction'}},
     [31] = {en='Rudra\'s Storm',skillchain={'Darkness','Distortion'}},
     [32] = {en='Fast Blade',skillchain={'Scission'}},
@@ -63,7 +63,7 @@ skills.weapon_skills = {
     [34] = {en='Red Lotus Blade',skillchain={'Liquefaction','Detonation'}},
     [35] = {en='Flat Blade',skillchain={'Impaction'}},
     [36] = {en='Shining Blade',skillchain={'Scission'}},
-    [37] = {en='Seraph Blade',skillchain={'Scission'}},
+    [37] = {en='Seraph Blade',skillchain={'Scission', 'Transfixion'}}, -- Added Transfixion for HorizonXI
     [38] = {en='Circle Blade',skillchain={'Reverberation','Impaction'}},
     [40] = {en='Vorpal Blade',skillchain={'Scission','Impaction'}},
     [41] = {en='Swift Blade',skillchain={'Gravitation'}},
@@ -86,15 +86,15 @@ skills.weapon_skills = {
     [59] = {en='Torcleaver',skillchain={'Light','Distortion'}},
     [60] = {en='Resolution',skillchain={'Fragmentation','Scission'},aeonic='Light',weapon='Lionheart'},
     [61] = {en='Dimidiation',skillchain={'Light','Fragmentation'}},
-    [64] = {en='Raging Axe',skillchain={'Detonation','Impaction'}},
+    [64] = {en='Raging Axe',skillchain={'Detonation'}}, -- Impaction Removed for HorizonXI
     [65] = {en='Smash Axe',skillchain={'Induration','Reverberation'}},
     [66] = {en='Gale Axe',skillchain={'Detonation'}},
-    [67] = {en='Avalanche Axe',skillchain={'Scission','Impaction'}},
+    [67] = {en='Avalanche Axe',skillchain={'Induration'}}, -- Induration added, Impaction and Scission removed for HorizonXI
     [68] = {en='Spinning Axe',skillchain={'Liquefaction','Scission','Impaction'}},
     [69] = {en='Rampage',skillchain={'Scission'}},
     [70] = {en='Calamity',skillchain={'Scission','Impaction'}},
     [71] = {en='Mistral Axe',skillchain={'Fusion'}},
-    [72] = {en='Decimation',skillchain={'Fusion','Reverberation'}},
+    [72] = {en='Decimation',skillchain={'Fusion','Detonation'}}, -- Replaced Reverberation with Detonation for HorizonXI
     [73] = {en='Onslaught',skillchain={'Darkness','Gravitation'}},
     [74] = {en='Primal Rend',skillchain={'Gravitation','Reverberation'}},
     [75] = {en='Bora Axe',skillchain={'Scission','Detonation'}},
@@ -115,7 +115,7 @@ skills.weapon_skills = {
     [92] = {en='Ukko\'s Fury',skillchain={'Light','Fragmentation'}},
     [93] = {en='Upheaval',skillchain={'Fusion','Compression'},aeonic='Light',weapon='Chango'},
     [96] = {en='Slice',skillchain={'Scission'}},
-    [97] = {en='Dark Harvest',skillchain={'Reverberation'}},
+    [97] = {en='Dark Harvest',skillchain={'Compression'}}, -- Replaced Reverberation with Compression for HorizonXI
     [98] = {en='Shadow of Death',skillchain={'Induration','Reverberation'}},
     [99] = {en='Nightmare Scythe',skillchain={'Compression','Scission'}},
     [100] = {en='Spinning Scythe',skillchain={'Reverberation','Scission'}},
@@ -134,7 +134,7 @@ skills.weapon_skills = {
     [115] = {en='Leg Sweep',skillchain={'Impaction'}},
     [116] = {en='Penta Thrust',skillchain={'Compression'}},
     [117] = {en='Vorpal Thrust',skillchain={'Reverberation','Transfixion'}},
-    [118] = {en='Skewer',skillchain={'Transfixion','Impaction'}},
+    [118] = {en='Skewer',skillchain={'Impaction'}}, -- Removed Transfixion for HorizonXI
     [119] = {en='Wheeling Thrust',skillchain={'Fusion'}},
     [120] = {en='Impulse Drive',skillchain={'Gravitation','Induration'}},
     [121] = {en='Geirskogul',skillchain={'Light','Distortion'}},
@@ -171,10 +171,10 @@ skills.weapon_skills = {
     [156] = {en='Tachi: Fudo',skillchain={'Light','Distortion'}},
     [157] = {en='Tachi: Shoha',skillchain={'Fragmentation','Compression'},aeonic='Light',weapon='Dojikiri Yasutsuna'},
     [158] = {en='Tachi: Suikawari',skillchain={'Fusion'}},
-    [160] = {en='Shining Strike',skillchain={'Impaction'}},
+    [160] = {en='Shining Strike',skillchain={'Transfixion'}}, -- Replaced Impaction with Transfixion for HorizonXI
     [161] = {en='Seraph Strike',skillchain={'Impaction'}},
     [162] = {en='Brainshaker',skillchain={'Reverberation'}},
-    [165] = {en='Skullbreaker',skillchain={'Induration','Reverberation'}},
+    [165] = {en='Skullbreaker',skillchain={'Detonation','Impaction'}}, -- Replaced Induration and Reverberation with Detonation and Impaction for HorizonXI
     [166] = {en='True Strike',skillchain={'Detonation','Impaction'}},
     [167] = {en='Judgment',skillchain={'Impaction'}},
     [168] = {en='Hexa Strike',skillchain={'Fusion'}},
@@ -186,8 +186,8 @@ skills.weapon_skills = {
     [176] = {en='Heavy Swing',skillchain={'Impaction'}},
     [177] = {en='Rock Crusher',skillchain={'Impaction'}},
     [178] = {en='Earth Crusher',skillchain={'Detonation','Impaction'}},
-    [179] = {en='Starburst',skillchain={'Compression','Reverberation'}},
-    [180] = {en='Sunburst',skillchain={'Compression','Reverberation'}},
+    [179] = {en='Starburst',skillchain={'Compression','Transfixion'}}, -- Replaced Reverberation with Transfixion for HorizonXI
+    [180] = {en='Sunburst',skillchain={'Transfixion','Reverberation'}}, -- Replaced Compression with Transfixion for HorizonXI
     [181] = {en='Shell Crusher',skillchain={'Detonation'}},
     [182] = {en='Full Swing',skillchain={'Liquefaction','Impaction'}},
     [184] = {en='Retribution',skillchain={'Gravitation','Reverberation'}},
@@ -198,7 +198,7 @@ skills.weapon_skills = {
     [189] = {en='Cataclysm',skillchain={'Compression','Reverberation'}},
     [191] = {en='Shattersoul',skillchain={'Gravitation','Induration'},aeonic='Darkness',weapon='Khatvanga'},
     [192] = {en='Flaming Arrow',skillchain={'Liquefaction','Transfixion'}},
-    [193] = {en='Piercing Arrow',skillchain={'Reverberation','Transfixion'}},
+    [193] = {en='Piercing Arrow',skillchain={'Induration','Transfixion'}}, -- Replaced Reverberation with Induration for HorizonXI
     [194] = {en='Dulling Arrow',skillchain={'Liquefaction','Transfixion'}},
     [196] = {en='Sidewinder',skillchain={'Reverberation','Transfixion','Detonation'}},
     [197] = {en='Blast Arrow',skillchain={'Induration','Transfixion'}},
